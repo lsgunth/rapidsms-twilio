@@ -9,7 +9,7 @@ class Migration(SchemaMigration):
 
     def forwards(self, orm):
         # Adding model 'TwilioResponse'
-        db.create_table(u'rtwilio_twilioresponse', (
+        db.create_table('rtwilio_twilioresponse', (
             ('date', self.gf('django.db.models.fields.DateTimeField')()),
             ('ip_address', self.gf('django.db.models.fields.IPAddressField')(max_length=15)),
             ('message', self.gf('django.db.models.fields.CharField')(max_length=64, primary_key=True)),
@@ -18,16 +18,16 @@ class Migration(SchemaMigration):
             ('recipient', self.gf('django.db.models.fields.CharField')(max_length=16)),
             ('status', self.gf('django.db.models.fields.CharField')(max_length=16)),
         ))
-        db.send_create_signal(u'rtwilio', ['TwilioResponse'])
+        db.send_create_signal('rtwilio', ['TwilioResponse'])
 
 
     def backwards(self, orm):
         # Deleting model 'TwilioResponse'
-        db.delete_table(u'rtwilio_twilioresponse')
+        db.delete_table('rtwilio_twilioresponse')
 
 
     models = {
-        u'rtwilio.twilioresponse': {
+        'rtwilio.twilioresponse': {
             'Meta': {'object_name': 'TwilioResponse'},
             'account': ('django.db.models.fields.CharField', [], {'max_length': '64'}),
             'date': ('django.db.models.fields.DateTimeField', [], {}),
