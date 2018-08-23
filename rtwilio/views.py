@@ -8,7 +8,7 @@ from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 
 from rapidsms.backends.http.views import GenericHttpBackendView
-from twilio.util import RequestValidator
+from twilio.request_validator import RequestValidator
 
 from rtwilio.models import TwilioResponse
 from rtwilio.forms import StatusCallbackForm, TwilioForm
