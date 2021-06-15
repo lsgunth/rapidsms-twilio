@@ -3,7 +3,7 @@ import logging
 
 from django.conf import settings
 from django.http import HttpResponse, HttpResponseBadRequest
-from django.utils.decorators import available_attrs, method_decorator
+from django.utils.decorators import method_decorator
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 
@@ -21,7 +21,7 @@ def validate_twilio_signature(func=None, backend_name='twilio-backend'):
     """View decorator to validate requests from Twilio per http://www.twilio.com/docs/security."""
 
     def _dec(view_func):
-        @functools.wraps(view_func, assigned=available_attrs(view_func))
+        @functools.wraps(view_func)
         def _wrapped_view(request, *args, **kwargs):
             backend = kwargs.get('backend_name', backend_name)
             config = settings.INSTALLED_BACKENDS[backend]['config']
