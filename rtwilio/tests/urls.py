@@ -1,6 +1,6 @@
-from django.conf.urls import include, url
+from django.urls import include, re_path
 
 
 urlpatterns = [
-    url(r'^backend/twilio/', include('rtwilio.urls')),
+    re_path(r'^backend/twilio/', include('rtwilio.urls')),
 ]
